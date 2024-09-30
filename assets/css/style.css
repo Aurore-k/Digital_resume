@@ -1,0 +1,938 @@
+/* définitions des polices  */
+
+:root {
+  --default-font: "Roboto",  system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --heading-font: "Raleway",  sans-serif;
+  --nav-font: "Poppins",  sans-serif;
+}
+
+/* Les couleurs utilisé sur tout le site  */
+:root { 
+  --background-color: #000000; 
+  --default-color: #fafafa; 
+  --heading-color: #ffffff; 
+  --accent-color: #d21875; 
+  --surface-color: #1a1a1a; 
+  --contrast-color: #000000;
+}
+
+/* les couleurs des bouttons pour les navigations  */
+:root {
+  --nav-color: #fafafa;  
+  --nav-hover-color: #d21875; 
+  --nav-mobile-background-color: #1a1a1a; 
+}
+
+/* utilisation du meme type de couleur pour tout  */
+
+.light-background {
+  --background-color: #1a1a1a;
+  --surface-color: #343434;
+}
+
+.dark-background {
+  --background-color: rgba(15, 15, 15, 0.975);
+  --default-color: #ffffff;
+  --heading-color: #ffffff;
+  --surface-color: #292929f9;
+  --contrast-color: #000000;
+}
+
+/* defilement avec fluidité sur le site  */
+:root {
+  scroll-behavior: smooth;
+}
+
+/* style de tout le site et classe présente dans tout les html ( en mode partagée )  */
+
+body {
+  color: var(--default-color);
+  background-color: var(--background-color);
+  font-family: var(--default-font);
+}
+
+a {
+  color: var(--accent-color);
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+a:hover {
+  color: color-mix(in srgb, var(--accent-color), transparent 25%);
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--heading-color);
+  font-family: var(--heading-font);
+}
+
+/* parametre Tout les header */
+
+.header {
+  --background-color: rgba(0, 0, 0, 0);
+  color: var(--default-color);
+  background-color: var(--background-color);
+  padding: 15px 0;
+  transition: all 0.5s;
+  z-index: 997;
+}
+
+.header .logo {
+  line-height: 1;
+}
+
+.header .logo img {
+  max-height: 32px;
+  margin-right: 8px;
+}
+
+.header .logo h1 {
+  font-size: 30px;
+  margin: 0;
+  font-weight: 700;
+  color: var(--heading-color);
+}
+
+.scrolled .header {
+  box-shadow: 0px 0 18px rgba(0, 0, 0, 0.1);
+}
+
+.scrolled .header {
+  --background-color: rgba(152, 149, 149, 0.515);
+}  /* header scroll */
+
+/* ordinateur  Navigation */
+@media (min-width: 1200px) {
+  .navmenu {
+    padding: 0;
+  }
+
+  .navmenu ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    list-style: none;
+    align-items: center;
+  }
+
+  .navmenu li {
+    position: relative;
+  }
+
+  .navmenu>ul>li {
+    white-space: nowrap;
+    padding: 15px 14px;
+  }
+
+  .navmenu>ul>li:last-child {
+    padding-right: 0;
+  }
+
+  .navmenu a,
+  .navmenu a:focus {
+    color: var(--nav-color);
+    font-size: 15px;
+    padding: 0 2px;
+    font-family: var(--nav-font);
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    white-space: nowrap;
+    transition: 0.3s;
+    position: relative;
+  }
+
+  .navmenu a i,
+  .navmenu a:focus i {
+    font-size: 12px;
+    line-height: 0;
+    margin-left: 5px;
+    transition: 0.3s;
+  }
+
+  .navmenu>ul>li>a:before {
+    content: "";
+    position: absolute;
+    height: 2px;
+    bottom: -6px;
+    left: 0;
+    background-color: var(--nav-hover-color);
+    visibility: hidden;
+    width: 0px;
+    transition: all 0.3s ease-in-out 0s;
+  }
+
+  .navmenu a:hover:before,
+  .navmenu li:hover>a:before,
+  .navmenu .active:before {
+    visibility: visible;
+    width: 25px;
+  }
+
+  .navmenu li:hover>a,
+  .navmenu .active,
+  .navmenu .active:focus {
+    color: var(--nav-hover-color);
+  }
+
+/* Téléphone Navigation */
+@media (max-width: 1199px) {
+  .mobile-nav-toggle {
+    color: var(--nav-color);
+    font-size: 28px;
+    line-height: 0;
+    margin-right: 10px;
+    cursor: pointer;
+    transition: color 0.3s;
+  }
+
+  .navmenu {
+    padding: 0;
+    z-index: 9997;
+  }
+
+  .navmenu ul {
+    display: none;
+    list-style: none;
+    position: absolute;
+    inset: 60px 20px 20px 20px;
+    padding: 10px 0;
+    margin: 0;
+    border-radius: 6px;
+    background-color: var(--nav-mobile-background-color);
+    border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+    box-shadow: none;
+    overflow-y: auto;
+    transition: 0.3s;
+    z-index: 9998;
+  }
+
+  .navmenu a,
+  .navmenu a:focus {
+    color: var(--nav-dropdown-color);
+    padding: 10px 20px;
+    font-family: var(--nav-font);
+    font-size: 17px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    white-space: nowrap;
+    transition: 0.3s;
+  }
+
+  .navmenu a i,
+  .navmenu a:focus i {
+    font-size: 12px;
+    line-height: 0;
+    margin-left: 5px;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: 0.3s;
+    background-color: color-mix(in srgb, var(--accent-color), transparent 90%);
+  }
+
+  .navmenu a i:hover,
+  .navmenu a:focus i:hover {
+    background-color: var(--accent-color);
+    color: var(--contrast-color);
+  }
+
+  .navmenu a:hover,
+  .navmenu .active,
+  .navmenu .active:focus {
+    color: var(--nav-dropdown-hover-color);
+  }
+
+  .navmenu .active i,
+  .navmenu .active:focus i {
+    background-color: var(--accent-color);
+    color: var(--contrast-color);
+    transform: rotate(180deg);
+  }
+
+  }
+  
+  .mobile-nav-active {
+    overflow: hidden;
+  }
+
+  .mobile-nav-active .mobile-nav-toggle {
+    color: #fff;
+    position: absolute;
+    font-size: 32px;
+    top: 15px;
+    right: 15px;
+    margin-right: 0;
+    z-index: 9999;
+  }
+
+  .mobile-nav-active .navmenu {
+    position: fixed;
+    overflow: hidden;
+    inset: 0;
+    background: rgba(33, 37, 41, 0.8);
+    transition: 0.3s;
+  }
+
+  .mobile-nav-active .navmenu>ul {
+    display: block;
+  }
+}
+
+/* Les parametre pour les scrolls des bouttons qui sont sur toute les pages */
+
+.scroll-top {
+  position: fixed;
+  visibility: hidden;
+  opacity: 0;
+  right: 15px;
+  bottom: -15px;
+  z-index: 99999;
+  background-color: var(--accent-color);
+  width: 44px;
+  height: 44px;
+  border-radius: 50px;
+  transition: all 0.4s;
+}
+
+.scroll-top i {
+  font-size: 24px;
+  color: var(--contrast-color);
+  line-height: 0;
+}
+
+.scroll-top:hover {
+  background-color: color-mix(in srgb, var(--accent-color), transparent 20%);
+  color: var(--contrast-color);
+}
+
+.scroll-top.active {
+  visibility: visible;
+  opacity: 1;
+  bottom: 15px;
+}
+
+
+/* Les parametre pour tout les titres qui sont présent sur les pages (A propos de moi, apprentissage et contact) */
+.page-title {
+  color: var(--default-color);
+  background-color: var(--background-color);
+  position: relative;
+}
+
+.page-title .heading {
+  padding: 160px 0 80px 0;
+  border-top: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+}
+
+.page-title .heading h1 {
+  font-size: 38px;
+  font-weight: 700;
+}
+
+.page-title nav {
+  background-color: color-mix(in srgb, var(--default-color), transparent 90%);
+  padding: 20px 0;
+}
+
+.page-title nav ol {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.page-title nav ol li+li {
+  padding-left: 10px;
+}
+
+.page-title nav ol li+li::before {
+  content: "/";
+  display: inline-block;
+  padding-right: 10px;
+  color: color-mix(in srgb, var(--default-color), transparent 70%);
+}
+
+/* ma box neon pour les titre */
+.neon-box {
+  border: 2px solid rgba(255, 255, 255, 0.2); 
+  padding: 40px; 
+  border-radius: 10px; 
+  box-shadow: 0 0 20px rgba(210, 24, 117, 0.5), 
+              0 0 30px rgba(210, 24, 117, 0.4), 
+              0 0 40px rgba(210, 24, 117, 0.3), 
+              0 0 50px rgba(210, 24, 117, 0.2); 
+  background-color: rgba(0, 0, 0, 0.6); 
+  color: var(--heading-color); 
+  text-align: center; 
+}
+
+@keyframes neonPulse {
+  0% {
+    box-shadow: 0 0 20px rgba(210, 24, 117, 0.5),
+                0 0 30px rgba(210, 24, 117, 0.4),
+                0 0 40px rgba(210, 24, 117, 0.3),
+                0 0 50px rgba(210, 24, 117, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(210, 24, 117, 0.8),
+                0 0 40px rgba(210, 24, 117, 0.6),
+                0 0 50px rgba(210, 24, 117, 0.4),
+                0 0 60px rgba(210, 24, 117, 0.2);
+  }
+  100% {
+    box-shadow: 0 0 20px rgba(210, 24, 117, 0.5),
+                0 0 30px rgba(210, 24, 117, 0.4),
+                0 0 40px rgba(210, 24, 117, 0.3),
+                0 0 50px rgba(210, 24, 117, 0.2);
+  }
+}
+
+/* l'effet pulsation */
+.neon-box {
+  animation: neonPulse 2s infinite;
+}
+
+/* animation de l'accordion de la page apprentissage */
+.collapsible {
+  background-color: #1a1a1a; 
+  color: var(--heading-color); 
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: center;
+  outline: none;
+  font-size: 18px;
+  transition: background-color 0.4s ease;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.collapsible:hover {
+  background-color: #d21875; 
+}
+
+/* Style pour le contenu masqué de l'accordion */
+.collapsible-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease-out;
+  background-color: #000; 
+  color: var(--default-color); 
+  padding: 0 18px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1); 
+}
+
+.active + .collapsible-content {
+  max-height: 200px; 
+  padding: 15px 18px; 
+}
+
+.collapsible-content p {
+  margin: 0;
+  padding: 15px 0;
+}
+
+/* Les parametre pour toutes les section qui sont présent sur les pages (A propos de moi, apprentissage et contact) */
+
+section,
+.section {
+  color: var(--default-color);
+  background-color: var(--background-color);
+  padding: 60px 0;
+  scroll-margin-top: 100px;
+  overflow: clip;
+}
+
+@media (max-width: 1199px) {
+
+  section,
+  .section {
+    scroll-margin-top: 66px;
+  }
+}
+
+/* Styles généraux pour les titres de la section a propos de moi (competences et interets) */
+.section-title {
+  padding-bottom: 60px; 
+  text-align: center; 
+  position: relative;
+}
+
+.section-title h2 {
+  font-size: 14px; 
+  font-weight: 500;
+  padding: 0;
+  margin: 0;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--default-color), transparent 50%);
+  position: relative;
+  line-height: 1.5; 
+}
+
+.section-title h2::after {
+  content: "";
+  width: 120px; 
+  height: 2px; 
+  display: inline-block;
+  background: var(--accent-color);
+  margin: 4px 10px;
+}
+
+.section-title div {
+  color: var(--heading-color); 
+  font-size: 28px; 
+  font-weight: 700;
+  text-transform: uppercase;
+  font-family: var(--heading-font);
+  margin: 0;
+}
+
+/* La premiere page */
+
+.page {
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+  padding: 80px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.page img {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+.page .container {
+  position: relative;
+  z-index: 3;
+}
+
+.page h2 {
+  margin: 0;
+  font-size: 64px;
+  font-weight: 700;
+}
+
+.page p {
+  margin: 5px 0 0 0;
+  font-size: 26px;
+}
+
+.page p span {
+  letter-spacing: 1px;
+  border-bottom: 3px solid var(--accent-color);
+}
+
+.page.social-links {
+  margin-top: 25px;
+}
+
+.page .social-links a {
+  background-color: color-mix(in srgb, var(--default-color), transparent 90%);
+  color: var(--default-color);
+  font-size: 14px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 20px;
+  transition: 0.3s;
+}
+
+.page .social-links a:hover {
+  background-color: var(--accent-color);
+}
+
+@media (max-width: 768px) {
+  .page h2 {
+    font-size: 32px;
+  }
+
+  .page p {
+    font-size: 20px;
+  }
+}
+
+/* La section a_propos_de_moi */
+
+.a_propos_de_moi .content h2 {
+  font-weight: 700;
+  font-size: 24px;
+}
+
+.a_propos_de_moi .content ul {
+  list-style: none;
+  padding: 0;
+}
+
+.a_propos_de_moi .content ul li {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.a_propos_de_moi .content ul strong {
+  margin-right: 10px;
+}
+
+.a_propos_de_moi .content ul i {
+  font-size: 16px;
+  margin-right: 5px;
+  color: var(--accent-color);
+  line-height: 0;
+}
+
+/* Centrage mes infos (téléphone...email) avec flexbox  */
+.info-container {
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  flex-wrap: wrap; 
+  gap: 20px; 
+  text-align: left; 
+}
+
+/* Style pour mes infos (téléphone...email) */
+.info-block {
+  display: flex;
+  align-items: center;
+  margin: 10px; 
+}
+
+/* Styles pour les icones et le texte de mes infos (téléphone...email) */
+.info-block i {
+  font-size: 16px;
+  color: var(--accent-color);
+  margin-right: 10px; 
+}
+
+.info-block strong {
+  font-weight: bold;
+  margin-right: 5px;
+}
+
+/* Animation pour mes infos (téléphone...email) */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px); 
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+.info-block {
+  opacity: 0; 
+  animation: fadeIn 0.8s ease-out forwards; 
+}
+
+.info-block:nth-child(1) {
+  animation-delay: 0.2s;
+}
+
+.info-block:nth-child(2) {
+  animation-delay: 0.4s;
+}
+
+.info-block:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+.info-block:nth-child(4) {
+  animation-delay: 0.8s;
+}
+
+/* La section mes compétences */
+
+:root {
+  --circle-size: 120px; 
+  --track-color: #eee;  
+  --fill-color: #e91e63; 
+  --inner-bg-color: rgb(14, 14, 14); 
+  --heading-color: #fafafa; 
+}
+
+.competence-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 40px; 
+}
+
+.competences {
+  font-size: 1.1em;
+  font-weight: bold;
+  color: var(--heading-color);
+  margin-bottom: 10px; 
+  text-align: center;
+}
+
+.progress-circle {
+  position: relative;
+  width: var(--circle-size);
+  height: var(--circle-size);
+  border-radius: 50%;
+  background: conic-gradient(var(--fill-color) calc(var(--progress) * 1%), var(--track-color) 0%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.circle-inner {
+  position: absolute;
+  width: 85%;
+  height: 85%;
+  border-radius: 50%;
+  background-color: var(--inner-bg-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.val {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: var(--heading-color);
+}
+
+/* Animation de grossissement quand on survol du cercle */
+.progress-circle:hover {
+  transform: scale(1.1); 
+  transition: transform 0.3s ease-in-out; 
+}
+
+/* Changement de couleur quand tu survol le cercle */
+.progress-circle:hover .circle-inner {
+  background-color: var(--fill-color); 
+  color: white; 
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out; /* temps de la transition */
+}
+
+/* Animation de pulsation (il ne s'arrete pas) */
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1); 
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+ /* Applique l'animation de pulsation sans arret */
+.progress-circle {
+  animation: pulse 2s infinite ease-in-out;
+}
+
+/* Pour chaque pourcentage, l'animation s'adapte au cercle */
+[data-value="100"] {
+  --progress: 100;
+}
+
+[data-value="90"] {
+  --progress: 90;
+}
+
+[data-value="80"] {
+  --progress: 80;
+}
+
+[data-value="75"] {
+  --progress: 75;
+}
+
+[data-value="55"] {
+  --progress: 55;
+}
+
+/* La section mes centres d'interêt */
+
+.interet .features-item {
+  background-color: var(--surface-color);
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  transition: 0.3s;
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+  position: relative;
+}
+
+.interet .features-item i {
+  font-size: 32px;
+  padding-right: 10px;
+  line-height: 0;
+}
+
+.interet .features-item h3 {
+  font-weight: 700;
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+  font-size: 16px;
+}
+
+.interet .features-item h3 a {
+  color: var(--heading-color);
+  transition: 0.3s;
+}
+
+.interet .features-item:hover {
+  border-color: var(--accent-color);
+}
+
+.interet .features-item:hover h3 a {
+  color: var(--accent-color);
+}
+
+/* La section Apprentissage  */
+
+.apprentissage .apprentissage-title {
+  color: var(--heading-color);
+  font-size: 26px;
+  font-weight: 700;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.apprentissage .apprentissage-item {
+  padding: 0 0 20px 20px;
+  margin-top: -2px;
+  border-left: 2px solid var(--accent-color);
+  position: relative;
+}
+
+.apprentissage .apprentissage-item h4 {
+  line-height: 18px;
+  font-size: 18px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--default-color), transparent 20%);
+  margin-bottom: 10px;
+}
+
+.apprentissage .apprentissage-item h5 {
+  font-size: 16px;
+  padding: 5px 15px;
+  display: inline-block;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.apprentissage .apprentissage-item ul {
+  padding-left: 20px;
+}
+
+.apprentissage .apprentissage-item ul li {
+  padding-bottom: 10px;
+}
+
+.apprentissage .apprentissage-item:last-child {
+  padding-bottom: 0;
+}
+
+.apprentissage .apprentissage-item::before {
+  content: "";
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-radius: 50px;
+  left: -9px;
+  top: 0;
+  background: var(--background-color);
+  border: 2px solid var(--accent-color);
+}
+
+/* La section Contact  */
+
+.contact .info-item .icon {
+  color: var(--contrast-color);
+  background-color: var(--accent-color);
+  width: 56px;
+  height: 56px;
+  font-size: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease-in-out;
+  border-radius: 50%;
+  margin-right: 15px;
+}
+
+.contact .php-email-form {
+  box-shadow: 0px 0px 20px rgb(255, 255, 255);
+  padding: 30px;
+  margin-top: 30px;
+}
+
+@media (max-width: 575px) {
+  .contact .php-email-form {
+    padding: 20px;
+  }
+}
+
+.contact .php-email-form input[type=text],
+.contact .php-email-form input[type=email],
+.contact .php-email-form textarea {
+  color: var(--default-color);
+  background-color: color-mix(in srgb, var(--background-color), transparent 50%);
+  border-color: color-mix(in srgb, var(--default-color), transparent 80%);
+  font-size: 14px;
+  padding: 10px 15px;
+  box-shadow: none;
+  border-radius: 0;
+}
+
+.contact .php-email-form input[type=text]:focus,
+.contact .php-email-form input[type=email]:focus,
+.contact .php-email-form textarea:focus {
+  border-color: var(--accent-color);
+}
+
+.contact .php-email-form input[type=text]::placeholder,
+.contact .php-email-form input[type=email]::placeholder,
+.contact .php-email-form textarea::placeholder {
+  color: color-mix(in srgb, var(--default-color), transparent 70%);
+}
+
+.contact .php-email-form button[type=submit] {
+  color: var(--contrast-color);
+  background: var(--accent-color);
+  border: 0;
+  padding: 10px 30px;
+  transition: 0.4s;
+  border-radius: 50px;
+}
+
+.contact .php-email-form button[type=submit]:hover {
+  background: color-mix(in srgb, var(--accent-color), transparent 20%);
+}
