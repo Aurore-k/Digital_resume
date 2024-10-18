@@ -11,7 +11,7 @@
   --background-color: #000000; 
   --default-color: #fafafa; 
   --heading-color: #ffffff; 
-  --accent-color: #d21875; 
+  --accent-color: #AF6259; 
   --surface-color: #1a1a1a; 
   --contrast-color: #000000;
 }
@@ -19,7 +19,7 @@
 /* les couleurs des bouttons pour les navigations  */
 :root {
   --nav-color: #fafafa;  
-  --nav-hover-color: #d21875; 
+  --nav-hover-color: #AF6259; 
   --nav-mobile-background-color: #1a1a1a; 
 }
 
@@ -367,15 +367,15 @@ h6 {
   color: color-mix(in srgb, var(--default-color), transparent 70%);
 }
 
-/* ma box neon pour les titre */
+/* ma box neon pour les titres */
 .neon-box {
   border: 2px solid rgba(255, 255, 255, 0.2); 
   padding: 40px; 
   border-radius: 10px; 
-  box-shadow: 0 0 20px rgba(210, 24, 117, 0.5), 
-              0 0 30px rgba(210, 24, 117, 0.4), 
-              0 0 40px rgba(210, 24, 117, 0.3), 
-              0 0 50px rgba(210, 24, 117, 0.2); 
+  box-shadow: 0 0 20px rgba(109, 7, 26, 0.5), 
+              0 0 30px rgba(109, 7, 26, 0.4), 
+              0 0 40px rgba(109, 7, 26, 0.3), 
+              0 0 50px rgba(109, 7, 26, 0.2); 
   background-color: rgba(0, 0, 0, 0.6); 
   color: var(--heading-color); 
   text-align: center; 
@@ -383,22 +383,22 @@ h6 {
 
 @keyframes neonPulse {
   0% {
-    box-shadow: 0 0 20px rgba(210, 24, 117, 0.5),
-                0 0 30px rgba(210, 24, 117, 0.4),
-                0 0 40px rgba(210, 24, 117, 0.3),
-                0 0 50px rgba(210, 24, 117, 0.2);
+    box-shadow: 0 0 20px rgba(109, 7, 26, 0.5),
+                0 0 30px rgba(109, 7, 26, 0.4),
+                0 0 40px rgba(109, 7, 26, 0.3),
+                0 0 50px rgba(109, 7, 26, 0.2);
   }
   50% {
-    box-shadow: 0 0 30px rgba(210, 24, 117, 0.8),
-                0 0 40px rgba(210, 24, 117, 0.6),
-                0 0 50px rgba(210, 24, 117, 0.4),
-                0 0 60px rgba(210, 24, 117, 0.2);
+    box-shadow: 0 0 30px rgba(109, 7, 26, 0.8),
+                0 0 40px rgba(109, 7, 26, 0.6),
+                0 0 50px rgba(109, 7, 26, 0.4),
+                0 0 60px rgba(109, 7, 26, 0.2);
   }
   100% {
-    box-shadow: 0 0 20px rgba(210, 24, 117, 0.5),
-                0 0 30px rgba(210, 24, 117, 0.4),
-                0 0 40px rgba(210, 24, 117, 0.3),
-                0 0 50px rgba(210, 24, 117, 0.2);
+    box-shadow: 0 0 20px rgba(109, 7, 26, 0.5),
+                0 0 30px rgba(109, 7, 26, 0.4),
+                0 0 40px rgba(109, 7, 26, 0.3),
+                0 0 50px rgba(109, 7, 26, 0.2);
   }
 }
 
@@ -426,7 +426,7 @@ h6 {
 }
 
 .collapsible:hover {
-  background-color: #d21875; 
+  background-color: #AF6259; 
 }
 
 /* Style pour le contenu masqué de l'accordion */
@@ -678,7 +678,7 @@ section,
 :root {
   --circle-size: 120px; 
   --track-color: #eee;  
-  --fill-color: #e91e63; 
+  --fill-color: #AF6259; 
   --inner-bg-color: rgb(14, 14, 14); 
   --heading-color: #fafafa; 
 }
